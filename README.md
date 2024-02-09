@@ -64,7 +64,7 @@ To use the snippets, open a Bash file, and start typing the name of a snippet. Y
 ## Contributing
 
 If you have suggestions for improving the BashSnippets, please [open an issue or
-submit a pull request](https://github.com/evildevill/BashSnippets).
+submit a pull request](https://github.com/evildevill/BashSnippets-vscode).
 
 ## License
 
