@@ -1,0 +1,241 @@
+{
+  "shebang": {
+    "prefix": "shebang",
+    "body": ["#!/bin/bash"],
+    "description": "Shebang"
+  },
+  "echo": {
+    "prefix": "e",
+    "body": ["echo \"${0:Hello World}\""],
+    "description": "Echo"
+  },
+  "function": {
+    "prefix": "fn",
+    "body": ["${1:function_name}() {", "\t$0", "}"],
+    "description": "Function"
+  },
+  "function with definitions": {
+    "prefix": "fnd",
+    "body": [
+      "#######################################",
+      "# Description",
+      "# Globals:",
+      "# - EXPORT_1 : which contains ...",
+      "# Arguments:",
+      "# - \\$1 : the first paramter (eg. param1)",
+      "# Outputs:",
+      "# Returns:",
+      "#######################################",
+      "${1:lib}::${2:function_name}() {",
+      "  local -r ${3:PARAM_1}=\"\\${1:?\"${2:function_name} is missing a parameter\"}\"",
+      "  $0",
+      "  export ${4:EXPORT_1}",
+      "}"
+    ],
+    "description": "Function in a libary with definitions of params and exports"
+  },
+  "if": {
+    "prefix": "if",
+    "body": ["if [[ $1 ]]; then", "\t$0", "fi"],
+    "description": "if block"
+  },
+  "if else": {
+    "prefix": "ife",
+    "body": ["if [[ $1 ]]; then", "\t$2", "else", "\t$0", "fi"],
+    "description": "if else block"
+  },
+  "elif": {
+    "prefix": "elif",
+    "body": ["elif [[ $1 ]]; then", "\t$0"],
+    "description": "elif block"
+  },
+  "until": {
+    "prefix": "until",
+    "body": ["until [[ $1 ]]; do", "\t$0", "done"],
+    "description": "until block"
+  },
+  "main": {
+    "prefix": "main",
+    "body": ["main() {", "}", "", "main \"$@\""],
+    "description": "a main function declaration with passthrough of all paramters passed to the file"
+  },
+  "const": {
+    "prefix": "const",
+    "body": ["local -r ${1:VARIABLE}=\"${0}\""],
+    "description": "creates a local readonly variable ie. a constant (this is meant for use within functions only)"
+  },
+  "TODO": {
+    "prefix": "todo",
+    "body": ["# TODO: (${1:author}) ${0:description}"],
+    "description": "creates a local readonly variable ie. a constant"
+  },
+  "array": {
+    "prefix": "array",
+    "body": ["${1:MYARRAY}=(\"${2:element1}\" \"${3:element2}\")"],
+    "description": "Creates an array with two elements"
+  },
+  "forarray": {
+    "prefix": "forarray",
+    "body": [
+      "for ${0:element} in \\${${MYARRAY}[@]\\}; do",
+      "echo \\$${0:element}",
+      "done"
+    ],
+    "description": "Creates a loop echoing all variables in an array"
+  },
+  "forindex": {
+    "prefix": "forindex",
+    "body": [
+      "for ${0:i} in {${1:0}..${2:5}\\}; do",
+      "echo \\$${0:i}",
+      "echo \\${MYARRAY[${0:i}]}",
+      "done"
+    ],
+    "description": "Creates a loop echoing all indexes in a range"
+  },
+  "while loop": {
+    "prefix": "while",
+    "body": ["while [[ $1 ]]; do", "\t$0", "done"],
+    "description": "while loop"
+  },
+  "case statement": {
+    "prefix": "case",
+    "body": ["case $1 in", "\t*)", "\t\t$0 ;;", "esac"],
+    "description": "case statement"
+  },
+  "for loop": {
+    "prefix": "for",
+    "body": ["for ((i=0; i<$1; i++)); do", "\t$0", "done"],
+    "description": "for loop"
+  },
+  "read input": {
+    "prefix": "read",
+    "body": ["read -p \"Enter value: \" $1"],
+    "description": "read input"
+  },
+  "parameter expansion": {
+    "prefix": "param",
+    "body": ["${1:variable:-default}"],
+    "description": "parameter expansion"
+  },
+  "trap": {
+    "prefix": "trap",
+    "body": ["trap '${1:cleanup_function}' EXIT"],
+    "description": "trap statement"
+  },
+  "here document": {
+    "prefix": "here",
+    "body": ["cat << EOF", "$0", "EOF"],
+    "description": "here document"
+  },
+  "here string": {
+    "prefix": "herestring",
+    "body": ["cat <<< $0"],
+    "description": "here string"
+  },
+  "here string with delimiter": {
+    "prefix": "herestringdelim",
+    "body": ["cat << ${1:DELIM}", "$0", "${1:DELIM}"],
+    "description": "here string with delimiter"
+  },
+  "here document with delimiter": {
+    "prefix": "heredocdelim",
+    "body": ["cat << ${1:DELIM}", "$0", "${1:DELIM}"],
+    "description": "here document with delimiter"
+  },
+  "here document with EOF": {
+    "prefix": "heredocEOF",
+    "body": ["cat << EOF", "$0", "EOF"],
+    "description": "here document with EOF"
+  },
+  "here document with EOF and delimiter": {
+    "prefix": "heredocEOFdelim",
+    "body": ["cat << ${1:DELIM}", "$0", "${1:DELIM}"],
+    "description": "here document with EOF and delimiter"
+  },
+  "here string with EOF": {
+    "prefix": "herestringEOF",
+    "body": ["cat <<< $0"],
+    "description": "here string with EOF"
+  },
+  "here string with EOF and delimiter": {
+    "prefix": "herestringEOFdelim",
+    "body": ["cat <<< $0"],
+    "description": "here string with EOF and delimiter"
+  },
+  "here string with delimiter": {
+    "prefix": "herestringdelim",
+    "body": ["cat <<< $0"],
+    "description": "here string with delimiter"
+  },
+  "export": {
+    "prefix": "export",
+    "body": ["export ${1:VAR}=${2:VALUE}"],
+    "description": "Export a variable"
+  },
+  "source": {
+    "prefix": "source",
+    "body": ["source ${1:file}"],
+    "description": "Source a file"
+  },
+  "alias": {
+    "prefix": "alias",
+    "body": ["alias ${1:alias}='${2:command}'"],
+    "description": "Create an alias"
+  },
+  "test": {
+    "prefix": "test",
+    "body": ["test ${1:condition}"],
+    "description": "Test condition"
+  },
+  "parameter expansion substring": {
+    "prefix": "paramsub",
+    "body": ["${1:variable:offset:length}"],
+    "description": "Parameter expansion with substring"
+  },
+  "parameter expansion replacement": {
+    "prefix": "paramrep",
+    "body": ["${1:variable//pattern/replacement}"],
+    "description": "Parameter expansion with pattern replacement"
+  },
+  "parameter expansion length": {
+    "prefix": "paramlen",
+    "body": ["${#${1:variable}}"],
+    "description": "Parameter expansion with length of variable"
+  },
+  "parameter expansion default value": {
+    "prefix": "paramdef",
+    "body": ["${1:variable:-default}"],
+    "description": "Parameter expansion with default value"
+  },
+  "parameter expansion assignment default value": {
+    "prefix": "paramasg",
+    "body": ["${1:variable:=default}"],
+    "description": "Parameter expansion with assignment of default value"
+  },
+  "parameter expansion error if unset or null": {
+    "prefix": "paramerr",
+    "body": ["${1:variable:?error message}"],
+    "description": "Parameter expansion with error message if variable is unset or null"
+  },
+  "parameter expansion remove smallest suffix pattern": {
+    "prefix": "paramsuf",
+    "body": ["${1:variable%pattern}"],
+    "description": "Parameter expansion with removal of smallest suffix pattern"
+  },
+  "parameter expansion remove largest suffix pattern": {
+    "prefix": "parambig",
+    "body": ["${1:variable%%pattern}"],
+    "description": "Parameter expansion with removal of largest suffix pattern"
+  },
+  "parameter expansion remove smallest prefix pattern": {
+    "prefix": "parampre",
+    "body": ["${1:variable#pattern}"],
+    "description": "Parameter expansion with removal of smallest prefix pattern"
+  },
+  "parameter expansion remove largest prefix pattern": {
+    "prefix": "parambigpre",
+    "body": ["${1:variable##pattern}"],
+    "description": "Parameter expansion with removal of largest prefix pattern"
+  }
+}

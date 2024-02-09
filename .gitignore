@@ -1,0 +1,5 @@
+node_modules
+*.vsix
+nextupdate.md
+*.sh
+vsc-extension-quickstart.md
