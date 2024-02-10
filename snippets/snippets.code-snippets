@@ -32,7 +32,7 @@
       "  export ${4:EXPORT_1}",
       "}"
     ],
-    "description": "Function in a libary with definitions of params and exports"
+    "description": "Function in a library with definitions of params and exports"
   },
   "if": {
     "prefix": "if",
@@ -57,7 +57,7 @@
   "main": {
     "prefix": "main",
     "body": ["main() {", "}", "", "main \"$@\""],
-    "description": "a main function declaration with passthrough of all paramters passed to the file"
+    "description": "a main function declaration with passthrough of all parameters passed to the file"
   },
   "const": {
     "prefix": "const",
@@ -163,11 +163,6 @@
     "body": ["cat <<< $0"],
     "description": "here string with EOF and delimiter"
   },
-  "here string with delimiter": {
-    "prefix": "herestringdelim",
-    "body": ["cat <<< $0"],
-    "description": "here string with delimiter"
-  },
   "export": {
     "prefix": "export",
     "body": ["export ${1:VAR}=${2:VALUE}"],
@@ -237,5 +232,1033 @@
     "prefix": "parambigpre",
     "body": ["${1:variable##pattern}"],
     "description": "Parameter expansion with removal of largest prefix pattern"
+  },
+  "parameter expansion replace with default value": {
+    "prefix": "paramrepdef",
+    "body": ["${1:variable/pattern/default}"],
+    "description": "Parameter expansion with replacement and default value"
+  },
+  "cd": {
+    "prefix": "cd",
+    "body": ["cd ${1:directory}"],
+    "description": "Change directory"
+  },
+  "mkdir": {
+    "prefix": "mkdir",
+    "body": ["mkdir ${1:directory}"],
+    "description": "Make directory"
+  },
+  "touch": {
+    "prefix": "touch",
+    "body": ["touch ${1:filename}"],
+    "description": "Create a new file"
+  },
+  "rm": {
+    "prefix": "rm",
+    "body": ["rm ${1:filename}"],
+    "description": "Remove a file"
+  },
+  "ls": {
+    "prefix": "ls",
+    "body": ["ls ${1:directory}"],
+    "description": "List directory contents"
+  },
+  "grep": {
+    "prefix": "grep",
+    "body": ["grep '${1:pattern}' ${2:file}"],
+    "description": "Search for a pattern in a file"
+  },
+  "find": {
+    "prefix": "find",
+    "body": ["find ${1:directory} -name '${2:pattern}'"],
+    "description": "Find files in a directory"
+  },
+  "tar": {
+    "prefix": "tar",
+    "body": ["tar -cvf ${1:archive.tar} ${2:file}"],
+    "description": "Create a tar archive"
+  },
+  "untar": {
+    "prefix": "untar",
+    "body": ["tar -xvf ${1:archive.tar}"],
+    "description": "Extract a tar archive"
+  },
+  "wget": {
+    "prefix": "wget",
+    "body": ["wget ${1:url}"],
+    "description": "Download a file from the internet"
+  },
+  "curl": {
+    "prefix": "curl",
+    "body": ["curl ${1:url}"],
+    "description": "Transfer data from or to a server"
+  },
+  "chmod": {
+    "prefix": "chmod",
+    "body": ["chmod ${1:permissions} ${2:file}"],
+    "description": "Change file permissions"
+  },
+  "chown": {
+    "prefix": "chown",
+    "body": ["chown ${1:user} ${2:file}"],
+    "description": "Change file owner and group"
+  },
+  "chgrp": {
+    "prefix": "chgrp",
+    "body": ["chgrp ${1:group} ${2:file}"],
+    "description": "Change file group"
+  },
+  "ps": {
+    "prefix": "ps",
+    "body": ["ps aux | grep ${1:process}"],
+    "description": "List running processes"
+  },
+  "kill": {
+    "prefix": "kill",
+    "body": ["kill ${1:pid}"],
+    "description": "Kill a process"
+  },
+  "top": {
+    "prefix": "top",
+    "body": ["top"],
+    "description": "Display Linux processes"
+  },
+  "free": {
+    "prefix": "free",
+    "body": ["free"],
+    "description": "Display amount of free and used memory in the system"
+  },
+  "df": {
+    "prefix": "df",
+    "body": ["df"],
+    "description": "Display disk usage"
+  },
+  "du": {
+    "prefix": "du",
+    "body": ["du"],
+    "description": "Display disk usage statistics"
+  },
+  "uname": {
+    "prefix": "uname",
+    "body": ["uname -a"],
+    "description": "Print system information"
+  },
+  "date": {
+    "prefix": "date",
+    "body": ["date"],
+    "description": "Display the system date and time"
+  },
+  "uptime": {
+    "prefix": "uptime",
+    "body": ["uptime"],
+    "description": "Show how long the system has been running"
+  },
+  "who": {
+    "prefix": "who",
+    "body": ["who"],
+    "description": "Show who is logged on"
+  },
+  "w": {
+    "prefix": "w",
+    "body": ["w"],
+    "description": "Show who is logged on and what they are doing"
+  },
+  "finger": {
+    "prefix": "finger",
+    "body": ["finger"],
+    "description": "Display information about user"
+  },
+  "id": {
+    "prefix": "id",
+    "body": ["id"],
+    "description": "Print real and effective user and group IDs"
+  },
+  "last": {
+    "prefix": "last",
+    "body": ["last"],
+    "description": "Show last logins of users and ttys"
+  },
+  "whoami": {
+    "prefix": "whoami",
+    "body": ["whoami"],
+    "description": "Print the effective userid"
+  },
+  "groups": {
+    "prefix": "groups",
+    "body": ["groups"],
+    "description": "Print the groups a user is in"
+  },
+  "hostname": {
+    "prefix": "hostname",
+    "body": ["hostname"],
+    "description": "Print the system hostname"
+  },
+  "dmesg": {
+    "prefix": "dmesg",
+    "body": ["dmesg"],
+    "description": "Print or control the kernel ring buffer"
+  },
+  "lsmod": {
+    "prefix": "lsmod",
+    "body": ["lsmod"],
+    "description": "Show the status of modules in the Linux Kernel"
+  },
+  "lspci": {
+    "prefix": "lspci",
+    "body": ["lspci"],
+    "description": "List all PCI devices"
+  },
+  "lsusb": {
+    "prefix": "lsusb",
+    "body": ["lsusb"],
+    "description": "List all USB devices"
+  },
+  "lscpu": {
+    "prefix": "lscpu",
+    "body": ["lscpu"],
+    "description": "Display information about the CPU architecture"
+  },
+  "lsblk": {
+    "prefix": "lsblk",
+    "body": ["lsblk"],
+    "description": "List block devices"
+  },
+  "lshw": {
+    "prefix": "lshw",
+    "body": ["lshw"],
+    "description": "List hardware"
+  },
+  "lsscsi": {
+    "prefix": "lsscsi",
+    "body": ["lsscsi"],
+    "description": "List SCSI devices"
+  },
+  "lsdev": {
+    "prefix": "lsdev",
+    "body": ["lsdev"],
+    "description": "List devices"
+  },
+  "Check Internet": {
+    "prefix": "checknet",
+    "body": [
+      "if ping -c 1 8.8.8.8 &> /dev/null; then",
+      "\techo 'Internet is on.'",
+      "else",
+      "\techo 'Internet is off.'",
+      "fi"
+    ],
+    "description": "Check if the internet is on or off"
+  },
+  "Check Internet with DNS": {
+    "prefix": "checknetdns",
+    "body": [
+      "if ping -c 1 google.com &> /dev/null; then",
+      "\techo 'Internet is on.'",
+      "else",
+      "\techo 'Internet is off.'",
+      "fi"
+    ],
+    "description": "Check if the internet is on or off using DNS"
+  },
+  "Check Internet with DNS and retry": {
+    "prefix": "checknetdnsretry",
+    "body": [
+      "while true; do",
+      "\tif ping -c 1 google.com &> /dev/null; then",
+      "\t\techo 'Internet is on.'",
+      "\t\tbreak",
+      "\telse",
+      "\t\techo 'Internet is off.'",
+      "\tfi",
+      "\tsleep 5",
+      "done"
+    ],
+    "description": "Check if the internet is on or off using DNS and retry every 5 seconds"
+  },
+  "Check Internet with DNS and retry with timeout": {
+    "prefix": "checknetdnsretrytimeout",
+    "body": [
+      "timeout 60s bash -c '",
+      "while true; do",
+      "\tif ping -c 1 google.com &> /dev/null; then",
+      "\t\techo 'Internet is on.'",
+      "\t\tbreak",
+      "\telse",
+      "\t\techo 'Internet is off.'",
+      "\tfi",
+      "\tsleep 5",
+      "done'"
+    ],
+    "description": "Check if the internet is on or off using DNS and retry every 5 seconds with a timeout of 60 seconds"
+  },
+  "Check Internet with DNS and retry with timeout and error message": {
+    "prefix": "checknetdnsretrytimeouterr",
+    "body": [
+      "timeout 60s bash -c '",
+      "while true; do",
+      "\tif ping -c 1 google.com &> /dev/null; then",
+      "\t\techo 'Internet is on.'",
+      "\t\tbreak",
+      "\telse",
+      "\t\techo 'Internet is off.'",
+      "\tfi",
+      "\tsleep 5",
+      "done' || echo 'Internet is off.'"
+    ],
+    "description": "Check if the internet is on or off using DNS and retry every 5 seconds with a timeout of 60 seconds and an error message"
+  },
+  "Check Internet with DNS and retry with timeout and error message and exit": {
+    "prefix": "checknetdnsretrytimeouterrex",
+    "body": [
+      "timeout 60s bash -c '",
+      "while true; do",
+      "\tif ping -c 1 google.com &> /dev/null; then",
+      "\t\techo 'Internet is on.'",
+      "\t\tbreak",
+      "\telse",
+      "\t\techo 'Internet is off.'",
+      "\tfi",
+      "\tsleep 5",
+      "done' || (echo 'Internet is off.' && exit 1)"
+    ],
+    "description": "Check if the internet is on or off using DNS and retry every 5 seconds with a timeout of 60 seconds and an error message and exit"
+  },
+  "case pattern matching": {
+    "prefix": "casepattern",
+    "body": [
+      "case $1 in",
+      "\tpattern1)",
+      "\t\t$0 ;;",
+      "\tpattern2)",
+      "\t\t$2 ;;",
+      "\tesac"
+    ],
+    "description": "case statement with pattern matching"
+  },
+  "select loop": {
+    "prefix": "select",
+    "body": [
+      "select ${1:option} in ${2:option1 option2 option3}; do",
+      "\tcase $option in",
+      "\t\t${3:option1})",
+      "\t\t\t$0",
+      "\t\t\tbreak ;;",
+      "\t\t${4:option2})",
+      "\t\t\t$0",
+      "\t\t\tbreak ;;",
+      "\t\t${5:option3})",
+      "\t\t\t$0",
+      "\t\t\tbreak ;;",
+      "\tesac",
+      "done"
+    ],
+    "description": "select loop for menu-like interfaces"
+  },
+  "getopts": {
+    "prefix": "getopts",
+    "body": [
+      "while getopts \":${1:options}\" opt; do",
+      "\tcase $opt in",
+      "\t\t${2:o})",
+      "\t\t\t$0",
+      "\t\t\t;;",
+      "\t\t${3:a})",
+      "\t\t\t$0",
+      "\t\t\t;;",
+      "\tesac",
+      "done",
+      "shift $((OPTIND-1))"
+    ],
+    "description": "getopts loop for processing command-line options"
+  },
+  "check file existence": {
+    "prefix": "fileexist",
+    "body": [
+      "if [[ -e ${1:file} ]]; then",
+      "\techo 'File exists.'",
+      "else",
+      "\techo 'File does not exist.'",
+      "fi"
+    ],
+    "description": "check if a file exists"
+  },
+  "check directory existence": {
+    "prefix": "direxist",
+    "body": [
+      "if [[ -d ${1:directory} ]]; then",
+      "\techo 'Directory exists.'",
+      "else",
+      "\techo 'Directory does not exist.'",
+      "fi"
+    ],
+    "description": "check if a directory exists"
+  },
+  "check file readability": {
+    "prefix": "fileread",
+    "body": [
+      "if [[ -r ${1:file} ]]; then",
+      "\techo 'File is readable.'",
+      "else",
+      "\techo 'File is not readable.'",
+      "fi"
+    ],
+    "description": "check if a file is readable"
+  },
+  "check file writability": {
+    "prefix": "filewrite",
+    "body": [
+      "if [[ -w ${1:file} ]]; then",
+      "\techo 'File is writable.'",
+      "else",
+      "\techo 'File is not writable.'",
+      "fi"
+    ],
+    "description": "check if a file is writable"
+  },
+  "check file executability": {
+    "prefix": "fileexec",
+    "body": [
+      "if [[ -x ${1:file} ]]; then",
+      "\techo 'File is executable.'",
+      "else",
+      "\techo 'File is not executable.'",
+      "fi"
+    ],
+    "description": "check if a file is executable"
+  },
+  "check file ownership": {
+    "prefix": "fileowner",
+    "body": [
+      "if [[ -O ${1:file} ]]; then",
+      "\techo 'File is owned by the user.'",
+      "else",
+      "\techo 'File is not owned by the user.'",
+      "fi"
+    ],
+    "description": "check if a file is owned by the user"
+  },
+  "check file group ownership": {
+    "prefix": "filegroup",
+    "body": [
+      "if [[ -G ${1:file} ]]; then",
+      "\techo 'File is owned by the group.'",
+      "else",
+      "\techo 'File is not owned by the group.'",
+      "fi"
+    ],
+    "description": "check if a file is owned by the group"
+  },
+  "check file empty": {
+    "prefix": "fileempty",
+    "body": [
+      "if [[ ! -s ${1:file} ]]; then",
+      "\techo 'File is empty.'",
+      "else",
+      "\techo 'File is not empty.'",
+      "fi"
+    ],
+    "description": "check if a file is empty"
+  },
+  "check file size": {
+    "prefix": "filesize",
+    "body": [
+      "if [[ $(stat -c %s ${1:file}) -gt ${2:0} ]]; then",
+      "\techo 'File is larger than 0 bytes.'",
+      "else",
+      "\techo 'File is 0 bytes.'",
+      "fi"
+    ],
+    "description": "check if a file is larger than 0 bytes"
+  },
+  "check file type": {
+    "prefix": "filetype",
+    "body": [
+      "if [[ -f ${1:file} ]]; then",
+      "\techo 'File is a regular file.'",
+      "elif [[ -d ${1:file} ]]; then",
+      "\techo 'File is a directory.'",
+      "elif [[ -L ${1:file} ]]; then",
+      "\techo 'File is a symbolic link.'",
+      "fi"
+    ],
+    "description": "check the type of a file"
+  },
+  "check file permissions": {
+    "prefix": "fileperm",
+    "body": [
+      "if [[ -r ${1:file} && -w ${1:file} && -x ${1:file} ]]; then",
+      "\techo 'File has read, write, and execute permissions.'",
+      "else",
+      "\techo 'File does not have read, write, and execute permissions.'",
+      "fi"
+    ],
+    "description": "check the permissions of a file"
+  },
+  "check file age": {
+    "prefix": "fileage",
+    "body": [
+      "if [[ $(find ${1:file} -mtime +${2:30}) ]]; then",
+      "\techo 'File is older than 30 days.'",
+      "else",
+      "\techo 'File is not older than 30 days.'",
+      "fi"
+    ],
+    "description": "check the age of a file"
+  },
+  "check file content": {
+    "prefix": "filecontent",
+    "body": [
+      "if [[ $(grep -q ${1:pattern} ${2:file}) ]]; then",
+      "\techo 'File contains the pattern.'",
+      "else",
+      "\techo 'File does not contain the pattern.'",
+      "fi"
+    ],
+    "description": "check the content of a file"
+  },
+  "check file content with regex": {
+    "prefix": "filecontentregex",
+    "body": [
+      "if [[ $(grep -qE ${1:regex} ${2:file}) ]]; then",
+      "\techo 'File contains the regex.'",
+      "else",
+      "\techo 'File does not contain the regex.'",
+      "fi"
+    ],
+    "description": "check the content of a file with a regex"
+  },
+  "check file content with case insensitive regex": {
+    "prefix": "filecontentregexcase",
+    "body": [
+      "if [[ $(grep -qiE ${1:regex} ${2:file}) ]]; then",
+      "\techo 'File contains the case insensitive regex.'",
+      "else",
+      "\techo 'File does not contain the case insensitive regex.'",
+      "fi"
+    ],
+    "description": "check the content of a file with a case insensitive regex"
+  },
+  "check file content with whole word regex": {
+    "prefix": "filecontentregexword",
+    "body": [
+      "if [[ $(grep -qwoE ${1:regex} ${2:file}) ]]; then",
+      "\techo 'File contains the whole word regex.'",
+      "else",
+      "\techo 'File does not contain the whole word regex.'",
+      "fi"
+    ],
+    "description": "check the content of a file with a whole word regex"
+  },
+  "check file content with whole word case insensitive regex": {
+    "prefix": "filecontentregexwordcase",
+    "body": [
+      "if [[ $(grep -qwoiE ${1:regex} ${2:file}) ]]; then",
+      "\techo 'File contains the whole word case insensitive regex.'",
+      "else",
+      "\techo 'File does not contain the whole word case insensitive regex.'",
+      "fi"
+    ],
+    "description": "check the content of a file with a whole word case insensitive regex"
+  },
+  "check file content with whole word regex and line number": {
+    "prefix": "filecontentregexwordlinenum",
+    "body": [
+      "if [[ $(grep -qwnoE ${1:regex} ${2:file}) ]]; then",
+      "\techo 'File contains the whole word regex on line number.'",
+      "else",
+      "\techo 'File does not contain the whole word regex on line number.'",
+      "fi"
+    ],
+    "description": "check the content of a file with a whole word regex and line number"
+  },
+  "check file content with whole word case insensitive regex and line number": {
+    "prefix": "filecontentregexwordcaselinenum",
+    "body": [
+      "if [[ $(grep -qwnoiE ${1:regex} ${2:file}) ]]; then",
+      "\techo 'File contains the whole word case insensitive regex on line number.'",
+      "else",
+      "\techo 'File does not contain the whole word case insensitive regex on line number.'",
+      "fi"
+    ],
+    "description": "check the content of a file with a whole word case insensitive regex and line number"
+  },
+  "check file content with whole word regex and line number and file name": {
+    "prefix": "filecontentregexwordlinenumfile",
+    "body": [
+      "if [[ $(grep -HwnoE ${1:regex} ${2:file}) ]]; then",
+      "\techo 'File contains the whole word regex on line number and file name.'",
+      "else",
+      "\techo 'File does not contain the whole word regex on line number and file name.'",
+      "fi"
+    ],
+    "description": "check the content of a file with a whole word regex and line number and file name"
+  },
+  "check file content with whole word case insensitive regex and line number and file name": {
+    "prefix": "filecontentregexwordcaselinenumfile",
+    "body": [
+      "if [[ $(grep -HwnoiE ${1:regex} ${2:file}) ]]; then",
+      "\techo 'File contains the whole word case insensitive regex on line number and file name.'",
+      "else",
+      "\techo 'File does not contain the whole word case insensitive regex on line number and file name.'",
+      "fi"
+    ],
+    "description": "check the content of a file with a whole word case insensitive regex and line number and file name"
+  },
+  "check file content with whole word regex and line number and file name and count": {
+    "prefix": "filecontentregexwordlinenumfilecount",
+    "body": [
+      "if [[ $(grep -HwncoE ${1:regex} ${2:file}) -gt ${3:0} ]]; then",
+      "\techo 'File contains the whole word regex on line number and file name and count.'",
+      "else",
+      "\techo 'File does not contain the whole word regex on line number and file name and count.'",
+      "fi"
+    ],
+    "description": "check the content of a file with a whole word regex and line number and file name and count"
+  },
+  "check file content with whole word case insensitive regex and line number and file name and count": {
+    "prefix": "filecontentregexwordcaselinenumfilecount",
+    "body": [
+      "if [[ $(grep -HwncoiE ${1:regex} ${2:file}) -gt ${3:0} ]]; then",
+      "\techo 'File contains the whole word case insensitive regex on line number and file name and count.'",
+      "else",
+      "\techo 'File does not contain the whole word case insensitive regex on line number and file name and count.'",
+      "fi"
+    ],
+    "description": "check the content of a file with a whole word case insensitive regex and line number and file name and count"
+  },
+  "check file content with whole word regex and line number and file name and count and error message": {
+    "prefix": "filecontentregexwordlinenumfilecounterr",
+    "body": [
+      "if [[ $(grep -HwncoE ${1:regex} ${2:file}) -gt ${3:0} ]]; then",
+      "\techo 'File contains the whole word regex on line number and file name and count.'",
+      "else",
+      "\techo 'File does not contain the whole word regex on line number and file name and count.'",
+      "fi || echo 'File does not contain the whole word regex on line number and file name and count.'"
+    ],
+    "description": "check the content of a file with a whole word regex and line number and file name and count and error message"
+  },
+  "check file content with whole word case insensitive regex and line number and file name and count and error message": {
+    "prefix": "filecontentregexwordcaselinenumfilecounterr",
+    "body": [
+      "if [[ $(grep -HwncoiE ${1:regex} ${2:file}) -gt ${3:0} ]]; then",
+      "\techo 'File contains the whole word case insensitive regex on line number and file name and count.'",
+      "else",
+      "\techo 'File does not contain the whole word case insensitive regex on line number and file name and count.'",
+      "fi || echo 'File does not contain the whole word case insensitive regex on line number and file name and count.'"
+    ],
+    "description": "check the content of a file with a whole word case insensitive regex and line number and file name and count and error message"
+  },
+  "check file content with whole word regex and line number and file name and count and error message and exit": {
+    "prefix": "filecontentregexwordlinenumfilecounterrex",
+    "body": [
+      "if [[ $(grep -HwncoE ${1:regex} ${2:file}) -gt ${3:0} ]]; then",
+      "\techo 'File contains the whole word regex on line number and file name and count.'",
+      "else",
+      "\techo 'File does not contain the whole word regex on line number and file name and count.'",
+      "fi || (echo 'File does not contain the whole word regex on line number and file name and count.' && exit 1)"
+    ],
+    "description": "check the content of a file with a whole word regex and line number and file name and count and error message and exit"
+  },
+  "check file content with whole word case insensitive regex and line number and file name and count and error message and exit": {
+    "prefix": "filecontentregexwordcaselinenumfilecounterrex",
+    "body": [
+      "if [[ $(grep -HwncoiE ${1:regex} ${2:file}) -gt ${3:0} ]]; then",
+      "\techo 'File contains the whole word case insensitive regex on line number and file name and count.'",
+      "else",
+      "\techo 'File does not contain the whole word case insensitive regex on line number and file name and count.'",
+      "fi || (echo 'File does not contain the whole word case insensitive regex on line number and file name and count.' && exit 1)"
+    ],
+    "description": "check the content of a file with a whole word case insensitive regex and line number and file name and count and error message and exit"
+  },
+  "while loop with condition": {
+    "prefix": "whilecond",
+    "body": [
+      "while [[ ${1:condition} ]]; do",
+      "\t$0",
+      "done"
+    ],
+    "description": "while loop with a specified condition"
+  },
+  "break statement": {
+    "prefix": "break",
+    "body": ["break"],
+    "description": "break statement to exit a loop or switch statement"
+  },
+  "continue statement": {
+    "prefix": "continue",
+    "body": ["continue"],
+    "description": "continue statement to skip the rest of a loop and start the next iteration"
+  },
+  "sleep command": {
+    "prefix": "sleep",
+    "body": ["sleep ${1:seconds}"],
+    "description": "pause the script for a specified number of seconds"
+  },
+  "awk one-liner": {
+    "prefix": "awk",
+    "body": ["awk '{ $0 = ${1:transformation}; print }'"],
+    "description": "AWK one-liner for text processing"
+  },
+  "sed one-liner": {
+    "prefix": "sed",
+    "body": ["sed -e '${1:expression}'"],
+    "description": "SED one-liner for text processing"
+  },
+  "tail command": {
+    "prefix": "tail",
+    "body": ["tail -n ${1:lines} ${2:file}"],
+    "description": "display the last part of a file"
+  },
+  "head command": {
+    "prefix": "head",
+    "body": ["head -n ${1:lines} ${2:file}"],
+    "description": "display the first part of a file"
+  },
+  "sort command": {
+    "prefix": "sort",
+    "body": ["sort ${1:file}"],
+    "description": "sort lines of text files"
+  },
+  "uniq command": {
+    "prefix": "uniq",
+    "body": ["uniq ${1:file}"],
+    "description": "report or filter out repeated lines in a file"
+  },
+  "cut command": {
+    "prefix": "cut",
+    "body": ["cut -d'${1:delimiter}' -f${2:fields} ${3:file}"],
+    "description": "remove sections from each line of a file"
+  },
+  "paste command": {
+    "prefix": "paste",
+    "body": ["paste ${1:file1} ${2:file2}"],
+    "description": "merge lines of files"
+  },
+  "awk script file": {
+    "prefix": "awkscript",
+    "body": ["#!/bin/awk -f", "", "{", "\t$0 = ${1:transformation}", "\tprint", "}"],
+    "description": "AWK script template"
+  },
+  "sed script file": {
+    "prefix": "sedscript",
+    "body": ["#!/bin/sed -f", "", "${1:expression}"],
+    "description": "SED script template"
+  },
+  "grep with color": {
+    "prefix": "grepcolor",
+    "body": ["grep --color=auto '${1:pattern}' ${2:file}"],
+    "description": "search for a pattern in a file with color"
+  },
+  "grep with line number": {
+    "prefix": "greplinenum",
+    "body": ["grep -n '${1:pattern}' ${2:file}"],
+    "description": "search for a pattern in a file with line number"
+  },
+  "grep with whole word": {
+    "prefix": "grepword",
+    "body": ["grep -w '${1:pattern}' ${2:file}"],
+    "description": "search for a pattern in a file as a whole word"
+  },
+  "grep with whole word and line number": {
+    "prefix": "grepwordlinenum",
+    "body": ["grep -wn '${1:pattern}' ${2:file}"],
+    "description": "search for a pattern in a file as a whole word with line number"
+  },
+  "grep with whole word and line number and file name": {
+    "prefix": "grepwordlinenumfile",
+    "body": ["grep -Hwn '${1:pattern}' ${2:file}"],
+    "description": "search for a pattern in a file as a whole word with line number and file name"
+  },
+  "grep with whole word and line number and file name and count": {
+    "prefix": "grepwordlinenumfilecount",
+    "body": ["grep -Hwnco '${1:pattern}' ${2:file}"],
+    "description": "search for a pattern in a file as a whole word with line number and file name and count"
+  },
+  "grep with whole word and line number and file name and count and error message": {
+    "prefix": "grepwordlinenumfilecounterrex",
+    "body": ["grep -Hwnco '${1:pattern}' ${2:file} -gt ${3:0} || echo 'Pattern not found.'"],
+    "description": "search for a pattern in a file as a whole word with line number and file name and count and error message"
+  },
+  "grep with whole word and line number and file name and count and error message and exit": {
+    "prefix": "grepwordlinenumfilecounterrexexit",
+    "body": ["grep -Hwnco '${1:pattern}' ${2:file} -gt ${3:0} || (echo 'Pattern not found.' && exit 1)"],
+    "description": "search for a pattern in a file as a whole word with line number and file name and count and error message and exit"
+  },
+  "grep with whole word and line number and file name and count and error message and exit and case insensitive": {
+    "prefix": "grepwordlinenumfilecounterrexexitcase",
+    "body": ["grep -Hwncoi '${1:pattern}' ${2:file} -gt ${3:0} || (echo 'Pattern not found.' && exit 1)"],
+    "description": "search for a pattern in a file as a whole word with line number and file name and count and error message and exit and case insensitive"
+  },
+  "for file in directory": {
+    "prefix": "forfile",
+    "body": [
+      "for ${1:file} in ${2:directory}/*; do",
+      "\t$0",
+      "done"
+    ],
+    "description": "loop through files in a directory"
+  },
+  "case statement with pattern)": {
+    "prefix": "casepat",
+    "body": [
+      "case $1 in",
+      "\t${2:pattern})",
+      "\t\t$0 ;;",
+      "\t*)",
+      "\t\t;;",
+      "esac"
+    ],
+    "description": "case statement with a specific pattern"
+  },
+  "select menu": {
+    "prefix": "select",
+    "body": [
+      "select ${1:option} in ${2:option1} ${3:option2} ${4:option3}; do",
+      "\tcase $option in",
+      "\t\t${2:option1})",
+      "\t\t\t$0 ;;",
+      "\t\t${3:option2})",
+      "\t\t\t$0 ;;",
+      "\t\t${4:option3})",
+      "\t\t\t$0 ;;",
+      "\t\tesac",
+      "done"
+    ],
+    "description": "create a select menu in a script"
+  },
+  "function with parameters": {
+    "prefix": "fnparam",
+    "body": [
+      "${1:function_name}() {",
+      "\tlocal ${2:param1}=${3:-default_value}",
+      "\tlocal ${4:param2}=${5:-default_value}",
+      "\t$0",
+      "}"
+    ],
+    "description": "function with parameters and default values"
+  },
+  "if null or empty string": {
+    "prefix": "ifempty",
+    "body": [
+      "if [[ -z ${1:variable} ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a variable is null or an empty string"
+  },
+  "until loop with condition": {
+    "prefix": "untilcond",
+    "body": [
+      "until [[ ${1:condition} ]]; do",
+      "\t$0",
+      "done"
+    ],
+    "description": "until loop with a specified condition"
+  },
+  "case statement with multiple patterns": {
+    "prefix": "casemulti",
+    "body": [
+      "case $1 in",
+      "\t${2:pattern1}|${3:pattern2})",
+      "\t\t$0 ;;",
+      "\t*)",
+      "\t\t;;",
+      "esac"
+    ],
+    "description": "case statement with multiple patterns"
+  },
+  "executing command in a loop": {
+    "prefix": "loopexec",
+    "body": [
+      "for ${1:element} in ${2:collection}; do",
+      "\t${3:command} \"$element\"",
+      "done"
+    ],
+    "description": "execute a command in a loop for each element in a collection"
+  },
+  "if file exists": {
+    "prefix": "iffileexists",
+    "body": [
+      "if [[ -e ${1:file_path} ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a file exists"
+  },
+  "if directory exists": {
+    "prefix": "ifdirexists",
+    "body": [
+      "if [[ -d ${1:directory_path} ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a directory exists"
+  },
+  "checking if a command exists": {
+    "prefix": "ifcommandexists",
+    "body": [
+      "if command -v ${1:command_name} &> /dev/null; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a command exists in the system"
+  },
+  "reading lines from a file": {
+    "prefix": "readfile",
+    "body": [
+      "while IFS= read -r ${1:line}; do",
+      "\t$0",
+      "done < ${2:file_path}"
+    ],
+    "description": "read lines from a file in a loop"
+  },
+  "function with variable number of arguments": {
+    "prefix": "fnvarargs",
+    "body": [
+      "${1:function_name}() {",
+      "\tlocal args=($@)",
+      "\t$0",
+      "}"
+    ],
+    "description": "function with a variable number of arguments"
+  },
+  "for line in file": {
+    "prefix": "forlineinfile",
+    "body": [
+      "while IFS= read -r ${1:line}; do",
+      "\t$0",
+      "done < ${2:file_path}"
+    ],
+    "description": "loop through lines in a file"
+  },
+  "get script directory": {
+    "prefix": "getscriptdir",
+    "body": [
+      "SCRIPT_DIR=\"$( cd \"$( dirname \"${BASH_SOURCE[0]}\" )\" && pwd )\"",
+      "echo $SCRIPT_DIR"
+    ],
+    "description": "get the directory of the script"
+  },
+  "case statement with esac": {
+    "prefix": "caseesac",
+    "body": [
+      "case $1 in",
+      "\t${2:pattern})",
+      "\t\t$0 ;;",
+      "\t*)",
+      "\t\t;;",
+      "esac"
+    ],
+    "description": "case statement with esac"
+  },
+  "check if a program is installed": {
+    "prefix": "ifinstalled",
+    "body": [
+      "if ! command -v ${1:program} &> /dev/null; then",
+      "\techo \"${1:program} is not installed. Please install it.\"",
+      "fi"
+    ],
+    "description": "check if a program is installed"
+  },
+  "check if a user has root privileges": {
+    "prefix": "ifroot",
+    "body": [
+      "if [[ $EUID -ne 0 ]]; then",
+      "\techo \"This script must be run as root.\"",
+      "\texit 1",
+      "fi"
+    ],
+    "description": "check if a user has root privileges"
+  },
+  "redirecting output to a file": {
+    "prefix": "outputtofile",
+    "body": [
+      "${1:command} > ${2:output_file}"
+    ],
+    "description": "redirecting output to a file"
+  },
+  "redirecting output and errors to a file": {
+    "prefix": "outputerrorstofile",
+    "body": [
+      "${1:command} > ${2:output_file} 2>&1"
+    ],
+    "description": "redirecting output and errors to a file"
+  },
+  "check if a file is readable": {
+    "prefix": "ifreadable",
+    "body": [
+      "if [[ -r ${1:file_path} ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a file is readable"
+  },
+  "check if a file is writable": {
+    "prefix": "ifwritable",
+    "body": [
+      "if [[ -w ${1:file_path} ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a file is writable"
+  },
+  "check if a file is executable": {
+    "prefix": "ifexecutable",
+    "body": [
+      "if [[ -x ${1:file_path} ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a file is executable"
+  },
+  "check if a string contains a substring": {
+    "prefix": "ifsubstring",
+    "body": [
+      "if [[ ${1:string} == *${2:substring}* ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a string contains a substring"
+  },
+  "check if a string starts with a prefix": {
+    "prefix": "ifstartswith",
+    "body": [
+      "if [[ ${1:string} == ${2:prefix}* ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a string starts with a prefix"
+  },
+  "check if a string ends with a suffix": {
+    "prefix": "ifendswith",
+    "body": [
+      "if [[ ${1:string} == *${2:suffix} ]]; then",
+      "\t$0",
+      "fi"
+    ],
+    "description": "if statement for checking if a string ends with a suffix"
+  },
+  "useful comment block": {
+    "prefix": "commentblock",
+    "body": [
+      "#########################################",
+      "#",
+      "# Author: ${1:Author}",
+      "# Description: ${2:Description}",
+      "#",
+      "#########################################"
+    ],
+    "description": "useful comment block"
+  },
+  "read and validate user input": {
+    "prefix": "readvalidate",
+    "body": [
+      "read -p \"Enter ${1:input}: \" ${2:variable}",
+      "if [[ ! $${2:variable} ]]; then",
+      "\techo \"${1:input} cannot be empty.\"",
+      "\texit 1",
+      "fi"
+    ],
+    "description": "read and validate user input"
   }
 }
