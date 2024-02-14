@@ -2,6 +2,11 @@
 
 All notable changes to the "BashSnippets" extension will be documented in this file.
 
+## [1.0.7] - 2024-02-14
+
+### Fixed
+- Fixed known issues with the extension.
+
 ## [1.0.6] - 2024-02-10
 
 ### Added

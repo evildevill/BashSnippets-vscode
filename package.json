@@ -3,14 +3,14 @@
     "displayName": "BashSnippets",
     "description": "BashSnippets is a Visual Studio Code extension that provides a collection of snippets for bash scripting.",
     "publisher": "WaseemAkram",
-    "repository": "https://github.com/evildevill/BashSnippets.git",
+    "repository": "https://github.com/evildevill/BashSnippets-vscode.git",
     " bugs": {
-        "url": "https://github.com/evildevill/BashSnippets/issues"
+        "url": "https://github.com/evildevill/BashSnippets-vscode/issues"
     },
     "homepage": "https://hackerwasii.com",
     "license": "MIT",
     "icon": "logo.png",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "engines": {
         "vscode": "^1.65.0"
     },
