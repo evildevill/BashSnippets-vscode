@@ -197,3 +197,18 @@ submit a pull request](https://github.com/evildevill/BashSnippets-vscode).
 ## License
 
 [MIT](LICENSE) © Waseem Akram
+
+## Support
+
+If you like this extension, you can support me by:
+
+- Star this repository on [GitHub](https://github.com/evildevill/BashSnippets-vscode)
+- [Follow me on GitHub](https://github.com/evildevill)
+- [Support me on Patreon](https://www.patreon.com/hackerwasii)
+- [Follow me on Facebook](https://facebook.com/hackerwasii)
+- [Follow me on Instagram](https://instagram.com/wasii_254)
+- Your support is greatly appreciated! 🙏
+
+**Enjoy!**
+
+**[Waseem Akram](https://hackerwasii.com)**
